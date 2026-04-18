@@ -1,3 +1,3 @@
 # Sanmargaha
 
-Sanmargaha Details TO BE ANNOUNCED
+[Details for Website](/REQUIREMENTS.md)
