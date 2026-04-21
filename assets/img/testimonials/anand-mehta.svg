@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Anand Mehta portrait">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7b2d3e" />
+      <stop offset="100%" stop-color="#1a2f5e" />
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" fill="url(#g2)" />
+  <circle cx="120" cy="96" r="52" fill="#e6be9e" />
+  <path d="M70 99c2-28 26-45 51-45s50 17 52 45c1 11-3 21-11 30-5-7-15-12-29-12s-24 5-30 12c-8-8-13-19-12-30z" fill="#212332" />
+  <path d="M42 226c9-40 36-66 78-66 43 0 69 26 78 66" fill="#fff" opacity="0.24" />
+  <text x="120" y="220" text-anchor="middle" fill="#ffffff" font-size="22" font-family="Plus Jakarta Sans, Arial" font-weight="700">AM</text>
+</svg>
