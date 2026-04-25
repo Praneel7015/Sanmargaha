@@ -2,115 +2,39 @@
   const wrap = document.getElementById("ka-map-wrap");
   if (!wrap) return;
 
-  const NAME_MAP = {
-    Bagalkot: "Bagalkot",
-    Bagalkote: "Bagalkot",
-    Bangalore: "Bengaluru Urban",
-    "Bangalore Rural": "Bengaluru Rural",
-    "Bangalore Urban": "Bengaluru Urban",
-    "Bengaluru Rural": "Bengaluru Rural",
-    "Bengaluru Urban": "Bengaluru Urban",
-    Belgaum: "Belagavi",
-    Belagavi: "Belagavi",
-    Bellary: "Ballari",
-    Ballari: "Ballari",
-    Bidar: "Bidar",
-    Bijapur: "Vijayapura",
-    Vijayapura: "Vijayapura",
-    Chamrajnagar: "Chamarajanagara",
-    Chamarajanagar: "Chamarajanagara",
-    Chamarajanagara: "Chamarajanagara",
-    Chamarajnagar: "Chamarajanagara",
-    Chikballapur: "Chikkaballapura",
-    Chikkaballapura: "Chikkaballapura",
-    Chickaballapura: "Chikkaballapura",
-    Chikmagalur: "Chikkamagaluru",
-    Chikkamagaluru: "Chikkamagaluru",
-    Chickamagaluru: "Chikkamagaluru",
-    Chitradurga: "Chitradurga",
-    "Dakshin Kannad": "Dakshina Kannada",
-    "Dakshina Kannada": "Dakshina Kannada",
-    "Dakshina Kannad": "Dakshina Kannada",
-    Davangere: "Davanagere",
-    Davanagere: "Davanagere",
-    Dharwad: "Dharwad",
-    Dharwada: "Dharwad",
-    Gadag: "Gadag",
-    Gadaga: "Gadag",
-    Gulbarga: "Kalaburagi",
-    Kalaburagi: "Kalaburagi",
-    Kalburgi: "Kalaburagi",
-    Hassan: "Hassan",
-    Haveri: "Haveri",
-    Kodagu: "Kodagu",
-    Coorg: "Kodagu",
-    Kolar: "Kolar",
-    Kolara: "Kolar",
-    Koppal: "Koppal",
-    Koppala: "Koppal",
-    Mandya: "Mandya",
-    Mysore: "Mysuru",
-    Mysuru: "Mysuru",
-    Raichur: "Raichur",
-    Raichuru: "Raichur",
-    Ramanagara: "Ramanagara",
-    Ramnagar: "Ramanagara",
-    Ramanagar: "Ramanagara",
-    Shimoga: "Shivamogga",
-    Shivamogga: "Shivamogga",
-    Tumkur: "Tumakuru",
-    Tumakuru: "Tumakuru",
-    Udupi: "Udupi",
-    "Uttar Kannad": "Uttara Kannada",
-    "Uttar Kannand": "Uttara Kannada",
-    "Uttara Kannada": "Uttara Kannada",
-    "Uttara Kannad": "Uttara Kannada",
-    Yadgir: "Yadgir",
-    Yadagiri: "Yadgir",
-    Vijayanagara: "Vijayanagara",
-    Vijayanagar: "Vijayanagara"
+  const CAMPUS_DISTRICTS = {
+    "Bengaluru Urban": {
+      fill: "#FF0000", // Red for Bengaluru
+      students: 49250,
+      label: "Bengaluru",
+      heroBubble: true,
+      shortAddress: {
+        line1: "8th Block Jayanagar",
+        line2: "Bengaluru - 560070"
+      }
+    },
+    Dharwad: {
+      fill: "#FFD700", // Yellow for Dharwad
+      students: 750,
+      label: "Dharwad",
+      heroBubble: false,
+      shortAddress: {
+        line1: "Kalyan Nagar",
+        line2: "Dharwad - 580007"
+      }
+    }
   };
 
-  const DISTRICTS = {
-    Bagalkot: { students: 1500, schools: "30 Schools", color: "#8DC4E8" },
-    Ballari: { students: 17200, schools: "144 Schools", color: "#F0D060" },
-    Belagavi: { students: 2750, schools: "55 Schools", color: "#7BADE0" },
-    "Bengaluru Rural": { students: 16600, schools: "162 Schools", color: "#F5C8C8" },
-    "Bengaluru Urban": { students: 49250, schools: "455 Schools", color: "#E84040" },
-    Bidar: { students: 19450, schools: "179 Schools", color: "#E8C840" },
-    Chamarajanagara: { students: 11050, schools: "243 Schools", color: "#C8E0C0" },
-    Chikkaballapura: { students: 16150, schools: "173 Schools", color: "#F0C0C0" },
-    Chikkamagaluru: { students: 4250, schools: "118 Schools", color: "#78B878" },
-    Chitradurga: { students: 16800, schools: "236 Schools", color: "#D06060" },
-    "Dakshina Kannada": { students: 600, schools: "23 Schools", color: "#8CC88C" },
-    Davanagere: { students: 16150, schools: "223 Schools", color: "#E08080" },
-    Dharwad: { students: 750, schools: "15 Schools", color: "#7BADE0" },
-    Gadag: { students: 800, schools: "16 Schools", color: "#D8C870" },
-    Kalaburagi: { students: 45250, schools: "295 Schools", color: "#E8C840" },
-    Hassan: { students: 13900, schools: "158 Schools", color: "#60A860" },
-    Haveri: { students: 1400, schools: "28 Schools", color: "#A0CCE0" },
-    Kodagu: { students: 450, schools: "9 Schools", color: "#509850" },
-    Kolar: { students: 20300, schools: "146 Schools", color: "#F0D0D0" },
-    Koppal: { students: 19500, schools: "190 Schools", color: "#D8C870" },
-    Mandya: { students: 13900, schools: "138 Schools", color: "#A0D4A0" },
-    Mysuru: { students: 34850, schools: "404 Schools", color: "#78B878" },
-    Raichur: { students: 23800, schools: "256 Schools", color: "#E8C840" },
-    Ramanagara: { students: 15150, schools: "214 Schools", color: "#F0D0D0" },
-    Shivamogga: { students: 1650, schools: "33 Schools", color: "#E08080" },
-    Tumakuru: { students: 17650, schools: "203 Schools", color: "#F0A8A8" },
-    Udupi: { students: 500, schools: "10 Schools", color: "#A0D4A0" },
-    "Uttara Kannada": { students: 1250, schools: "25 Schools", color: "#B0D4E8" },
-    Vijayapura: { students: 1150, schools: "23 Schools", color: "#8DC4E8" },
-    Yadgir: { students: 9100, schools: "172 Schools", color: "#E8C840" },
-    Vijayanagara: { students: 15000, schools: "100 Schools", color: "#D8C870" }
+  const DISTRICT_ALIASES = {
+    bangalore: "Bengaluru Urban",
+    "bangalore urban": "Bengaluru Urban",
+    "bengaluru urban": "Bengaluru Urban",
+    "bangalore rural": "Bengaluru Rural",
+    "bengaluru rural": "Bengaluru Rural",
+    dharwad: "Dharwad",
+    dharwada: "Dharwad"
   };
 
-  const HIGHLIGHT_DISTRICTS = new Set(["Belagavi", "Dharwad", "Bengaluru Urban"]);
-  const HIGHLIGHT_FILL = {
-    Belagavi: "#2D6A4F",
-    Dharwad: "#B44D5F",
-    "Bengaluru Urban": "#2E4A8F"
-  };
   const NON_CAMPUS_FILL = "#D8DCE3";
 
   const GEO_URLS = [
@@ -120,44 +44,43 @@
     "https://raw.githubusercontent.com/geohacker/india/master/state/ka.json"
   ];
 
+  const getRawDistrictName = (props = {}) => {
+    const keys = ["NAME_2", "district", "name", "DISTRICT", "dtname", "Name", "dt_name", "DIST_NAME"];
+    for (const key of keys) {
+      const value = props[key];
+      if (value) return String(value).trim();
+    }
+    return "";
+  };
+
+  const toAliasKey = (value) =>
+    String(value)
+      .toLowerCase()
+      .replaceAll(/[^a-z\s]/g, " ")
+      .replaceAll(/\s+/g, " ")
+      .trim();
+
   const normalizeDistrict = (props = {}) => {
-    let raw =
-      props.NAME_2 ||
-      props.district ||
-      props.name ||
-      props.DISTRICT ||
-      props.dtname ||
-      props.Name ||
-      props.dt_name ||
-      props.DIST_NAME ||
-      "";
+    const raw = getRawDistrictName(props);
+    if (!raw) return "";
 
-    raw = String(raw).trim();
-    if (!raw) return raw;
-    if (NAME_MAP[raw]) return NAME_MAP[raw];
+    const normalized = toAliasKey(raw);
+    const normalizedWithoutDistrict = normalized.replaceAll(/\bdistrict\b/g, "").replaceAll(/\s+/g, " ").trim();
 
-    const lower = raw.toLowerCase();
-
-    for (const key of Object.keys(NAME_MAP)) {
-      if (key.toLowerCase() === lower) return NAME_MAP[key];
-    }
-
-    for (const key of Object.keys(NAME_MAP)) {
-      const lowerKey = key.toLowerCase();
-      if (lower.includes(lowerKey) || lowerKey.includes(lower)) return NAME_MAP[key];
-    }
+    if (DISTRICT_ALIASES[normalizedWithoutDistrict]) return DISTRICT_ALIASES[normalizedWithoutDistrict];
+    if (DISTRICT_ALIASES[normalized]) return DISTRICT_ALIASES[normalized];
 
     return raw;
   };
 
-  const isHighlightedDistrict = (name) => HIGHLIGHT_DISTRICTS.has(name);
-
   const getInfo = (feature) => {
     const name = normalizeDistrict(feature?.properties || {});
+    const campus = CAMPUS_DISTRICTS[name] || null;
+
     return {
       name,
-      data: DISTRICTS[name] || null,
-      highlighted: isHighlightedDistrict(name)
+      campus,
+      highlighted: Boolean(campus)
     };
   };
 
@@ -166,6 +89,11 @@
     if (students >= 15000) return 13;
     if (students >= 5000) return 10;
     return 7;
+  };
+
+  const getBaseBubbleRadius = (info) => {
+    if (!info.highlighted || !info.campus) return 0;
+    return bubbleRadius(info.campus.students);
   };
 
   const showLoadError = () => {
@@ -208,8 +136,7 @@
       .attr("d", pathGen)
       .attr("fill", (feature) => {
         const info = getInfo(feature);
-        if (!info.highlighted) return NON_CAMPUS_FILL;
-        return HIGHLIGHT_FILL[info.name] || "#0D5C63";
+        return info.campus?.fill || NON_CAMPUS_FILL;
       })
       .style("opacity", 0)
       .on("mouseenter", (_event, feature) => {
@@ -233,21 +160,23 @@
 
         outerBubbles.attr("r", (node) => {
           const nodeInfo = getInfo(node);
-          if (!nodeInfo.highlighted) return 0;
-          const base = nodeInfo.data ? bubbleRadius(nodeInfo.data.students) : 7;
+          const base = getBaseBubbleRadius(nodeInfo);
+          if (!base) return 0;
           return hoveredCampus && nodeInfo.name === districtName ? base * 1.4 : base;
         });
 
         innerBubbles.attr("r", (node) => {
           const nodeInfo = getInfo(node);
-          if (!nodeInfo.highlighted) return 0;
-          const base = (nodeInfo.data ? bubbleRadius(nodeInfo.data.students) : 7) * 0.42;
-          return hoveredCampus && nodeInfo.name === districtName ? base * 1.4 : base;
+          const base = getBaseBubbleRadius(nodeInfo);
+          if (!base) return 0;
+          const innerBase = base * 0.42;
+          return hoveredCampus && nodeInfo.name === districtName ? innerBase * 1.4 : innerBase;
         });
 
         if (ttName) ttName.textContent = districtName;
-        if (ttNum) ttNum.textContent = hoveredCampus && info.data ? info.data.students.toLocaleString("en-IN") : "-";
-        if (ttSchools) ttSchools.textContent = hoveredCampus && info.data ? info.data.schools : "No campus in this district";
+        const shortAddress = info.campus?.shortAddress || null;
+        if (ttNum) ttNum.textContent = hoveredCampus && shortAddress ? shortAddress.line1 : "-";
+        if (ttSchools) ttSchools.textContent = hoveredCampus && shortAddress ? shortAddress.line2 : "No campus in this district";
 
         const centroid = pathGen.centroid(feature);
         const svgElement = document.getElementById("ka-map-svg");
@@ -269,14 +198,13 @@
 
         outerBubbles.attr("r", (node) => {
           const info = getInfo(node);
-          if (!info.highlighted) return 0;
-          return info.data ? bubbleRadius(info.data.students) : 7;
+          return getBaseBubbleRadius(info);
         });
 
         innerBubbles.attr("r", (node) => {
           const info = getInfo(node);
-          if (!info.highlighted) return 0;
-          return (info.data ? bubbleRadius(info.data.students) : 7) * 0.42;
+          const base = getBaseBubbleRadius(info);
+          return base ? base * 0.42 : 0;
         });
 
         if (tooltip) tooltip.classList.remove("visible");
@@ -295,15 +223,11 @@
       .append("circle")
       .attr("class", (feature) => {
         const info = getInfo(feature);
-        return `ka-bubble-outer${info.name === "Bengaluru Urban" ? " hero-bubble" : ""}`;
+        return `ka-bubble-outer${info.campus?.heroBubble ? " hero-bubble" : ""}`;
       })
       .attr("cx", (feature) => pathGen.centroid(feature)[0])
       .attr("cy", (feature) => pathGen.centroid(feature)[1])
-      .attr("r", (feature) => {
-        const info = getInfo(feature);
-        if (!info.highlighted) return 0;
-        return info.data ? bubbleRadius(info.data.students) : 7;
-      })
+      .attr("r", (feature) => getBaseBubbleRadius(getInfo(feature)))
       .style("opacity", 0);
 
     const innerBubbles = group
@@ -313,14 +237,13 @@
       .append("circle")
       .attr("class", (feature) => {
         const info = getInfo(feature);
-        return `ka-bubble-inner${info.name === "Bengaluru Urban" ? " hero-bubble" : ""}`;
+        return `ka-bubble-inner${info.campus?.heroBubble ? " hero-bubble" : ""}`;
       })
       .attr("cx", (feature) => pathGen.centroid(feature)[0])
       .attr("cy", (feature) => pathGen.centroid(feature)[1])
       .attr("r", (feature) => {
-        const info = getInfo(feature);
-        if (!info.highlighted) return 0;
-        return (info.data ? bubbleRadius(info.data.students) : 7) * 0.42;
+        const base = getBaseBubbleRadius(getInfo(feature));
+        return base ? base * 0.42 : 0;
       })
       .style("opacity", 0);
 
@@ -345,7 +268,7 @@
       .attr("x", (feature) => pathGen.centroid(feature)[0])
       .attr("y", (feature) => {
         const info = getInfo(feature);
-        return pathGen.centroid(feature)[1] + (info.data ? bubbleRadius(info.data.students) : 7) + 12;
+        return pathGen.centroid(feature)[1] + getBaseBubbleRadius(info) + 12;
       })
       .attr("font-size", (feature) => {
         const name = getInfo(feature).name || "";
@@ -356,7 +279,7 @@
       .text((feature) => {
         const info = getInfo(feature);
         if (!info.highlighted) return "";
-        return info.name === "Bengaluru Urban" ? "Bengaluru" : info.name;
+        return info.campus?.label || info.name;
       })
       .style("opacity", 0);
 
