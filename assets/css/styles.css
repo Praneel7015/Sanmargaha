@@ -2464,14 +2464,11 @@ footer {
   transition: var(--ease);
 }
 
-.soc-btn svg {
+.soc-btn img {
   width: 16px;
   height: 16px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.9;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  display: block;
+  object-fit: contain;
 }
 
 .soc-btn:hover {
