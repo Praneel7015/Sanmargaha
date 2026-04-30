@@ -643,8 +643,10 @@ body[data-page="home"] .h-card {
 
 .h-stats {
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
   gap: 12px;
 }
 
@@ -660,6 +662,8 @@ body[data-page="home"] .h-stats {
   text-align: center;
   padding: 20px 16px;
   transition: var(--ease);
+  flex: 1 1 220px;
+  max-width: min(280px, 100%);
 }
 
 body[data-page="home"] .h-stat {
@@ -2666,14 +2670,6 @@ footer {
     display: block;
   }
 
-  .h-stats {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .h-stats .h-stat:last-child {
-    grid-column: span 2;
-  }
-
   .cp-grid,
   .loc-grid,
   .bl-grid,
@@ -2755,13 +2751,19 @@ footer {
   }
 
   .ab-vals,
-  .h-stats,
   .c-full-grid {
     grid-template-columns: 1fr;
   }
 
-  .h-stats .h-stat:last-child {
-    grid-column: auto;
+  .h-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .h-stats .h-stat {
+    flex: 0 1 auto;
+    width: min(100%, 320px);
+    max-width: 100%;
   }
 
   .ind-card {
