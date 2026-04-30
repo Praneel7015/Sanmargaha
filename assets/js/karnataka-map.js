@@ -4,7 +4,7 @@
 
   const CAMPUS_DISTRICTS = {
     "Bengaluru Urban": {
-      fill: "#25ac13", // Red for Bengaluru
+      fill: "#25ac13",
       students: 49250,
       label: "Bengaluru",
       heroBubble: true,
@@ -14,7 +14,7 @@
       }
     },
     Dharwad: {
-      fill: "#6f19d1", // Yellow for Dharwad
+      fill: "#6f19d1", 
       students: 750,
       label: "Dharwad",
       heroBubble: false,
