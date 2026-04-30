@@ -26,7 +26,7 @@
         <h5>Navigate</h5>
         <ul class="ft-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Team</a></li>
           <li><a href="courses.html">Courses</a></li>
           <li><a href="presence.html">Our Presence</a></li>
           <li><a href="blogs.html">Blogs</a></li>
