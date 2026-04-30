@@ -8,7 +8,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="home">Home</a></li>
-      <li><a href="about.html" data-page="about">About Us</a></li>
+      <li><a href="team.html" data-page="team">Team</a></li>
       <li><a href="courses.html" data-page="courses">Courses</a></li>
       <li><a href="presence.html" data-page="presence">Our Presence</a></li>
       <li><a href="blogs.html" data-page="blogs">Blogs</a></li>
@@ -24,7 +24,7 @@
 <div class="mob-menu" id="mobMenu" aria-label="Mobile menu">
   <ul>
     <li><a href="index.html" data-page="home">Home</a></li>
-    <li><a href="about.html" data-page="about">About Us</a></li>
+    <li><a href="team.html" data-page="team">Team</a></li>
     <li><a href="courses.html" data-page="courses">Courses</a></li>
     <li><a href="presence.html" data-page="presence">Our Presence</a></li>
     <li><a href="blogs.html" data-page="blogs">Blogs</a></li>
