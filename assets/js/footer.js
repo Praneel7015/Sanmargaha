@@ -16,7 +16,7 @@
           <a class="soc-btn" href="#" aria-label="YouTube">
             <img src="assets/img/youtube-svgrepo-com.svg" alt="" width="16" height="16" loading="lazy" decoding="async" />
           </a>
-          <a class="soc-btn" href="#" aria-label="WhatsApp">
+          <a class="soc-btn" href="https://wa.me/919535035059" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
             <img src="assets/img/whatsapp-svgrepo-com.svg" alt="" width="16" height="16" loading="lazy" decoding="async" />
           </a>
         </div>
@@ -49,8 +49,9 @@
       <div class="ft-col">
         <h5>Contact</h5>
         <ul class="ft-links">
-          <li><a href="mailto:hello@sanmargaha.edu.in">hello@sanmargaha.edu.in</a></li>
-          <li><a href="tel:+918312045600">+91 83120 45600</a></li>
+          <li><a href="mailto:sanmargaha@gmail.com">sanmargaha@gmail.com</a></li>
+          <li><a href="tel:+919535035059">+919535035059</a></li>
+          <li><a href="https://wa.me/919535035059" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
           <li><a href="presence.html">Dharwad Campus</a></li>
           <li><a href="presence.html">Bengaluru Campus</a></li>
         </ul>

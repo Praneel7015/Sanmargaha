@@ -183,6 +183,7 @@
     const resetBtn = qs("#resetForm");
 
     if (!form || !formWrapper || !okPanel) return;
+    if (form.dataset.routeEmail === "true") return;
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
