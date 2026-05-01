@@ -1,6 +1,9 @@
 @font-face {
   font-family: "Samarkhan";
-  src: url("../fonts/Samarkhan.TTF") format("truetype");
+  src:
+    local("Samarkhan"),
+    local("Samarkan"),
+    url("../fonts/Samarkhan.TTF") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
